@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Windsor Academy – Research for BRACU CSE students</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@300;400;500;600&display=swap">
+<style>
+:root{--bg:#efe4cf;--bg2:#e6d7bb;--surface:#f8f0df;--ink:#1b120e;--muted:#6e5a4a;--line:#d5c2a0;--gold:#7a1124;--gold2:#9b2a3c;--on-gold:#f8efd9;--navy:#140c09;--glass:rgba(250,242,226,.5);--glassb:rgba(255,250,238,.8);--orb1:rgba(122,17,36,.28);--orb2:rgba(107,66,38,.32);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e0907;--bg2:#150e0b;--surface:#1c130f;--ink:#f0e4cc;--muted:#a7937c;--line:#33231b;--gold:#b5304a;--gold2:#d6ab7c;--on-gold:#f8efd9;--navy:#070403;--glass:rgba(240,228,204,.05);--glassb:rgba(240,228,204,.16);--orb1:rgba(181,48,74,.3);--orb2:rgba(140,90,52,.3)}}
+:root[data-theme="dark"]{--bg:#0e0907;--bg2:#150e0b;--surface:#1c130f;--ink:#f0e4cc;--muted:#a7937c;--line:#33231b;--gold:#b5304a;--gold2:#d6ab7c;--on-gold:#f8efd9;--navy:#070403;--glass:rgba(240,228,204,.05);--glassb:rgba(240,228,204,.16);--orb1:rgba(181,48,74,.3);--orb2:rgba(140,90,52,.3)}
+:root{--c1:#7a1124;--c2:#8a5a3a;--c3:#c9a577;--c4:#2a1a14}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--c1:#c23b52;--c2:#a9744a;--c3:#d6ab7c;--c4:#efe3cb}}
+:root[data-theme="dark"]{--c1:#c23b52;--c2:#a9744a;--c3:#d6ab7c;--c4:#efe3cb}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}.hide{display:none!important}
+h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:500;letter-spacing:-.01em}
+nav{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:24px;color:var(--ink);text-decoration:none;letter-spacing:.04em}.logo span{color:var(--gold);font-style:italic}
+nav a.l{color:var(--muted);text-decoration:none;font-size:13px;margin-left:28px;letter-spacing:.04em}nav a.l:hover{color:var(--gold)}
+.btn{display:inline-block;padding:13px 30px;border-radius:14px;font-weight:500;text-decoration:none;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--gold);cursor:pointer;font-family:inherit;transition:.25s;text-align:center}
+.btn.p{background:var(--gold);color:var(--on-gold)}.btn.p:hover{filter:brightness(1.18)}
+.btn.o{background:transparent;color:var(--gold)}.btn.o:hover{background:var(--gold);color:var(--on-gold)}
+.btn.sm{padding:7px 14px;font-size:11px;border-radius:10px}.btn.dg{border-color:#c0392b;color:#c0392b;background:transparent}
+nav .btn{padding:9px 20px;font-size:11px;margin-left:24px}
+.eyebrow{color:var(--gold);font-weight:500;font-size:11px;letter-spacing:.3em;text-transform:uppercase}
+.hero{padding:80px 0 60px;background:radial-gradient(ellipse at 70% 0%,var(--orb1),transparent 60%)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+h1{font-size:clamp(40px,6.4vw,76px);line-height:1.03;margin:20px 0;font-weight:500}h1 em{color:var(--gold)}
+.hero p{max-width:480px;margin:0 0 34px;color:var(--muted);font-size:16.5px;font-weight:300}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.frame{position:relative;border-radius:28px;padding:12px;background:var(--glass);backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);border:1px solid var(--glassb);box-shadow:0 30px 70px rgba(10,15,36,.22),inset 0 1px 0 var(--glassb)}
+.ein{aspect-ratio:4/4.4;border-radius:22px;overflow:hidden;background:radial-gradient(circle at 50% 38%,rgba(150,30,50,.45),transparent 62%),linear-gradient(160deg,#2b1511,#0c0706);position:relative}
+.ein canvas{display:block;width:100%;height:100%}.ein .sorry{position:absolute;inset:0;display:grid;place-items:center;color:#9ba2bf;font-size:13px}
+.frame .cap{text-align:center;padding:16px 8px 6px}.frame .cap b{display:block;font-family:"Cormorant Garamond",serif;font-size:27px;font-weight:600;color:var(--ink);line-height:1.1}.frame .cap span{display:block;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-top:7px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:60px}
+.stats div{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:26px 16px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-height:164px}
+.stats i{font-style:normal;width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);font-size:16px;margin-bottom:14px;font-family:"Cormorant Garamond",serif;font-weight:600}
+.stats b{display:block;font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600;color:var(--ink);line-height:1.15}.stats span{font-size:12.5px;color:var(--muted);margin-top:6px;letter-spacing:.02em}
+section{padding:90px 0}.band{background:var(--bg2);border-block:1px solid var(--line)}
+h2{font-size:clamp(32px,4.8vw,50px);margin:12px 0;line-height:1.1}.sub{color:var(--muted);margin:0 0 44px;max-width:560px;font-weight:300}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;align-items:stretch}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:30px;position:relative;overflow:hidden;display:flex;flex-direction:column;transition:border-color .3s}
+.card::before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:.6}
+.card:hover{border-color:var(--gold)}
+.card h4{margin:0 0 6px;font-family:"Cormorant Garamond",serif;font-size:23px;font-weight:600}.card p{color:var(--muted);font-size:14px;margin:8px 0 0;font-weight:300}
+.topic{flex-direction:row;gap:18px;align-items:flex-start}.topic .num{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:38px;font-weight:600;line-height:1}
+.ico{width:42px;height:42px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:var(--gold);margin-bottom:18px;font-size:14px}
+.glassbg{position:relative;overflow:hidden}.glassbg::before,.glassbg::after{content:"";position:absolute;width:420px;height:420px;border-radius:50%;filter:blur(90px);z-index:0}
+.glassbg::before{background:var(--orb1);top:-80px;left:-100px}.glassbg::after{background:var(--orb2);bottom:-100px;right:-80px}.glassbg .wrap{position:relative;z-index:1}
+.gc{background:var(--glass);backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);border:1px solid var(--glassb);border-radius:28px;padding:30px;box-shadow:0 20px 50px rgba(10,15,36,.12);text-align:center;display:flex;flex-direction:column;align-items:center}
+.ph{width:112px;height:112px;border-radius:50%;margin:0 auto 18px;background:linear-gradient(135deg,#2a1812,#6a3a28);color:#e9d2ab;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:600;border:1px solid var(--gold);padding:3px;overflow:hidden}.ph img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.gc h4{margin:0;font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600}.gc .role{color:var(--gold);font-size:11px;letter-spacing:.2em;text-transform:uppercase;margin:4px 0 12px;font-weight:500}.gc p{color:var(--muted);font-size:14px;margin:0;font-weight:300;flex:1}
+.gc .tag{display:inline-block;margin-top:18px;font-size:11px;padding:4px 12px;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+.ch{background:var(--surface);border:1px solid var(--line);border-radius:20px;margin-bottom:12px;overflow:hidden}.ch[open]{border-color:var(--gold)}
+.ch summary{cursor:pointer;padding:20px 24px;list-style:none;display:flex;align-items:center;gap:18px}.ch summary::-webkit-details-marker{display:none}
+.ch .num{font-family:"Cormorant Garamond",serif;color:var(--gold);font-size:28px;font-weight:600;min-width:38px}
+.ch .t{flex:1;font-weight:500;font-size:15px}.ch .t small{display:block;color:var(--muted);font-weight:300;font-size:13px}
+.badge{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border:1px solid var(--line);color:var(--muted);white-space:nowrap;border-radius:99px}
+.chev{color:var(--gold);transition:.2s}.ch[open] .chev{transform:rotate(180deg)}.body{padding:0 24px 24px}
+.vid{aspect-ratio:16/9;background:linear-gradient(135deg,var(--navy),#3a1c14);display:grid;place-items:center;color:#fff;text-align:center;border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.vid iframe,.vid video{width:100%;height:100%;border:0}.vid .pl{width:62px;height:62px;border-radius:50%;border:1px solid #e9d2ab;color:#e9d2ab;display:grid;place-items:center;font-size:20px;margin:0 auto 10px}.vid small{opacity:.7;letter-spacing:.1em}
+.notes{margin:16px 0 0;font-size:14px;color:var(--muted);font-weight:300;white-space:pre-wrap}.cl a{display:inline-block;margin:10px 14px 0 0;color:var(--gold);font-size:13px}
+.done{display:flex;align-items:center;gap:8px;margin-top:16px;font-size:13px;color:var(--muted);cursor:pointer;text-transform:none;letter-spacing:0}.done input{accent-color:var(--gold);width:auto}
+.toggle{display:inline-flex;border:1px solid var(--line);padding:3px;background:var(--surface);margin-bottom:44px;border-radius:14px}
+.toggle button{border:0;background:none;color:var(--muted);padding:10px 26px;font-weight:500;cursor:pointer;font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-family:inherit;border-radius:11px}.toggle button.on{background:var(--gold);color:var(--on-gold)}
+.price{font-family:"Cormorant Garamond",serif;font-size:58px;font-weight:500;margin:14px 0 2px;line-height:1}.price small{font-family:Manrope,sans-serif;font-size:13px;color:var(--muted);font-weight:400}.save{font-size:12px;color:var(--gold);height:20px;letter-spacing:.06em}
+.card.hot{border-color:var(--gold);background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 8%,var(--surface)),var(--surface))}
+.card.hot .rib{position:absolute;top:0;right:26px;background:var(--gold);color:var(--on-gold);font-size:10px;letter-spacing:.18em;text-transform:uppercase;padding:5px 12px;border-radius:0 0 12px 12px}
+.card ul{list-style:none;padding:0;margin:20px 0 28px;font-size:14px;color:var(--muted);font-weight:300;border-top:1px solid var(--line)}.card li{padding:9px 0;border-bottom:1px solid var(--line)}.card li::before{content:"—  ";color:var(--gold)}.card .btn{width:100%;margin-top:auto}.card ul{flex:1;width:100%}
+.fine{font-size:12.5px;color:var(--muted);margin-top:26px;font-weight:300}
+details.faq{border-bottom:1px solid var(--line)}details.faq summary{cursor:pointer;padding:22px 0;font-weight:500;list-style:none;display:flex;justify-content:space-between;gap:12px}
+details.faq summary::after{content:"+";color:var(--gold);font-size:22px;line-height:1;font-weight:300}details.faq[open] summary::after{content:"–"}details.faq p{margin:0 0 22px;color:var(--muted);font-weight:300}
+footer{background:var(--navy);color:#b9a88f;padding:64px 0 40px;font-size:13px;font-weight:300}footer .wrap{display:flex;justify-content:space-between;gap:28px;flex-wrap:wrap}footer b{color:#d8b98a;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600}footer a{color:#b9a88f}
+.view{display:none}.view.on{display:block}
+.co{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;padding:40px 0 90px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:32px}.panel h3{margin:6px 0 20px;font-size:30px}
+.methods{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.mt{border:1px solid var(--line);padding:16px;cursor:pointer;background:var(--bg);text-align:left;color:var(--ink);font-family:inherit;border-radius:18px}.mt b{display:block;font-weight:600;font-size:15px}.mt span{font-size:12px;color:var(--muted)}.mt.on{border-color:var(--gold);background:color-mix(in srgb,var(--gold) 9%,var(--bg))}
+.steps{background:var(--bg2);border-left:2px solid var(--gold);padding:18px 22px;margin-bottom:22px;font-size:14px;border-radius:0 18px 18px 0}.steps ol{margin:8px 0 0;padding-left:20px;color:var(--muted)}
+.kv{display:flex;justify-content:space-between;gap:12px;padding:6px 0;border-bottom:1px solid var(--line);font-size:13.5px}.kv span{color:var(--muted)}
+label{display:block;font-size:11px;font-weight:500;margin:16px 0 6px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+input,textarea,select{width:100%;padding:12px 14px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:14.5px;font-family:inherit;border-radius:14px}input:focus,textarea:focus,select:focus{outline:1px solid var(--gold);border-color:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.sum .row{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px}.sum .tot{font-family:"Cormorant Garamond",serif;font-size:30px;color:var(--gold);border:0;font-weight:600}
+.back{color:var(--muted);text-decoration:none;font-size:13px;display:inline-block;margin-top:34px}.secure{font-size:12.5px;color:var(--muted);margin-top:14px;font-weight:300}
+.login{max-width:440px;margin:70px auto 100px}.err{color:#c0392b;font-size:13px;min-height:20px;margin-top:12px}
+.lh{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;padding:48px 0 28px}
+.pill{display:inline-block;border:1px solid var(--gold);color:var(--gold);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;padding:4px 12px;margin-left:8px;vertical-align:middle;border-radius:99px;font-family:Manrope,sans-serif}
+.bar{height:3px;background:var(--line);margin:14px 0 6px}.bar i{display:block;height:100%;background:var(--gold);width:0;transition:.4s}
+.lg{display:grid;grid-template-columns:1.7fr 1fr;gap:24px;padding-bottom:90px;align-items:start}
+.res a{display:flex;justify-content:space-between;color:var(--ink);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--line);font-size:14px}.res a:hover{color:var(--gold)}.res a::after{content:"↗";color:var(--gold)}
+/* dashboard */
+.dash{padding:40px 0 90px}.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:22px 0}.tabs button{border:1px solid var(--line);background:var(--surface);color:var(--muted);padding:9px 18px;border-radius:12px;font-family:inherit;font-size:12.5px;cursor:pointer;letter-spacing:.06em}.tabs button.on{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
+.oc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px;margin-bottom:16px}.ocr{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:6px}.ocr span{display:flex;gap:6px}
+.pubbar{position:sticky;bottom:12px;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;background:var(--navy);color:#cfd3e4;padding:14px 20px;border-radius:16px;margin-top:20px;border:1px solid var(--gold)}
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:18px}.kpi div{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px}.kpi b{display:block;font-family:"Cormorant Garamond",serif;font-size:34px;color:var(--gold);line-height:1.1}.kpi span{font-size:12px;color:var(--muted)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}th,td{text-align:left;padding:10px 8px;border-bottom:1px solid var(--line)}th{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500}
+@media(max-width:980px){.g4{grid-template-columns:repeat(2,1fr)}}@media(max-width:980px){.stats{grid-template-columns:repeat(2,1fr)}}@media(max-width:760px){.grid,.g3,.g4{grid-template-columns:1fr}}@media(max-width:420px){.stats{grid-template-columns:1fr}}@media(max-width:860px){.co,.lg,.hero .wrap{grid-template-columns:1fr}nav .lk{display:none}.two{grid-template-columns:1fr}.hero{padding-top:50px}}
+#loader{position:fixed;inset:0;z-index:100;background:var(--navy);display:grid;place-items:center;opacity:0;pointer-events:none;transition:opacity .25s}#loader.on{opacity:1;pointer-events:all}#loader .logo{color:#f3ead9;font-size:34px;text-align:center}#loader .logo span{color:#d6ab7c}#loader .lb{width:220px;height:3px;background:rgba(255,255,255,.14);border-radius:3px;overflow:hidden;margin:18px auto 12px}#loader .lb i{display:block;height:100%;width:0;background:#b5304a;border-radius:3px}#loader.on .lb i{animation:ld 1.5s linear forwards}@keyframes ld{to{width:100%}}#loader small{display:block;text-align:center;color:#b9a88f;letter-spacing:.22em;text-transform:uppercase;font-size:11px}
+
+.dd{position:relative;display:inline-block;margin-left:26px}.ddb{background:none;border:1px solid var(--line);border-radius:14px;padding:9px 16px;font:500 12px Manrope,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--ink);cursor:pointer}.ddb:hover{border-color:var(--gold);color:var(--gold)}
+.ddm{position:absolute;right:0;top:calc(100% + 10px);min-width:200px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:8px;box-shadow:0 22px 48px rgba(20,12,9,.2);display:none;z-index:40}.dd.open .ddm{display:block}
+.ddm a{display:block;padding:12px 16px;border-radius:14px;color:var(--ink);text-decoration:none;font-size:13.5px}.ddm a:hover{background:var(--bg2);color:var(--gold)}
+.adm nav,.adm footer{display:none}
+.al{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
+.alb{background:radial-gradient(circle at 20% 15%,rgba(181,48,74,.55),transparent 55%),linear-gradient(160deg,#3a0a12,#120a08);color:#efe3cb;padding:48px 56px;display:flex;flex-direction:column;justify-content:space-between;gap:40px}
+.alb .logo{color:#f3ead9;font-size:28px}.alb .logo span{color:#d6ab7c}.alb h2{font-size:clamp(34px,4.4vw,54px);color:#fff;margin:14px 0}.alb p{color:#d2c2a6;max-width:420px;font-weight:300}
+.alb ul{list-style:none;padding:0;margin:26px 0 0}.alb li{padding:8px 0;color:#e6d6b8;font-size:14px}.alb li::before{content:"◆  ";color:#c23b52}.alb small{color:#a99a82}
+.alf{display:grid;place-items:center;padding:40px 24px;background:var(--bg)}.alp{width:100%;max-width:440px}
+.dh{display:grid;grid-template-columns:250px 1fr;min-height:100vh;background:var(--bg)}
+.sb{background:linear-gradient(180deg,#1d0c0e,#0e0807);color:#e9dcc2;padding:28px 18px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.sb .logo{color:#f3ead9;font-size:22px;padding:0 10px}.sb .logo span{color:#d6ab7c}.sbp{margin:8px 10px 18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#d6ab7c}
+.sb button{border:0;background:transparent;color:#cdbb9c;padding:12px 14px;border-radius:16px;cursor:pointer;font-family:inherit;font-size:13.5px;display:flex;gap:12px;align-items:center;text-align:left}.sb button i{font-style:normal;width:22px;text-align:center}.sb button:hover{background:rgba(255,255,255,.06)}
+.sb button.on{background:linear-gradient(135deg,#7a1124,#a42339);color:#fff}.sbf{margin-top:auto;font-size:11.5px;color:#9a8b73;padding:0 10px}
+.mn{padding:34px 38px 90px;min-width:0}.dtop{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:22px}.dtop h2{margin:6px 0 0;font-size:40px}.acts{display:flex;gap:8px;flex-wrap:wrap}
+.kp{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+.kc{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:22px;position:relative;overflow:hidden;min-height:138px}
+.kc span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}.kc b{display:block;font-family:"Cormorant Garamond",serif;font-size:42px;line-height:1.1;color:var(--ink);margin:8px 0 2px;font-weight:600}.kc small{color:var(--gold);font-size:12px}
+.kc svg.sp{position:absolute;right:10px;bottom:10px;width:46%;height:42px}.kc.hl{background:linear-gradient(135deg,#7a1124,#2d0910);border:0}.kc.hl b{color:#fff}.kc.hl span,.kc.hl small{color:#e9d2ab}
+.cg{display:grid;grid-template-columns:repeat(6,1fr);gap:18px}.cc{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:24px;min-width:0}.cc h4{margin:0 0 2px;font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:600}.cc .cs{font-size:12px;color:var(--muted);margin-bottom:14px}.s2{grid-column:span 2}.s3{grid-column:span 3}.s4{grid-column:span 4}.s6{grid-column:span 6}
+.cc svg{display:block;width:100%;height:auto}.donut{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.donut svg{width:140px;flex:none}.lg2{list-style:none;padding:0;margin:0;font-size:13px;flex:1;min-width:110px}.lg2 li{display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--muted)}.lg2 li b{margin-left:auto;color:var(--ink)}.lg2 i{width:10px;height:10px;border-radius:50%;flex:none}
+.dc{font:600 22px "Cormorant Garamond",serif;fill:var(--ink)}.ds{font:400 7px Manrope,sans-serif;fill:var(--muted);letter-spacing:.1em;text-transform:uppercase}.bv{font:600 10px Manrope,sans-serif;fill:var(--ink)}.bl{font:400 9.5px Manrope,sans-serif;fill:var(--muted)}.gl{stroke:var(--line);stroke-width:1}.gt{font:400 9px Manrope,sans-serif;fill:var(--muted)}
+.pr{margin-bottom:14px}.prh{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px}.prh b{color:var(--gold)}.prb{height:9px;border-radius:9px;background:var(--bg2);overflow:hidden}.prb i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--c1),var(--c2))}
+.chip{display:inline-block;padding:2px 10px;border-radius:99px;font-size:11px;border:1px solid var(--line);color:var(--muted)}.chip.ok{border-color:var(--c2);color:var(--c2)}
+@media(max-width:1100px){.kp{grid-template-columns:repeat(2,1fr)}.s2,.s3,.s4{grid-column:span 6}}
+@media(max-width:900px){.al{grid-template-columns:1fr}.alb{padding:32px 24px}.dh{grid-template-columns:1fr}.sb{position:static;height:auto;flex-direction:row;overflow-x:auto;padding:14px}.sb .logo,.sbp,.sbf{display:none}.sb button{white-space:nowrap}.mn{padding:24px 18px 90px}.dtop h2{font-size:32px}}
+@media(max-width:560px){.kp{grid-template-columns:1fr}.dd{margin-left:12px}nav .btn{margin-left:12px;padding:9px 14px}}
+</style>
+</head>
+<body>
+<div id="loader"><div><div class="logo">Windsor<span> Academy</span></div><div class="lb"><i></i></div><small>Opening…</small></div></div>
+<nav><div class="wrap"><a class="logo" href="#home">Windsor<span> Academy</span></a><div><span class="lk"><a class="l" href="#courses">Topics</a><a class="l" href="#mentors">Mentors</a><a class="l" href="#pricing">Pricing</a><a class="l" href="#faq">FAQ</a></span><div class="dd" id="dd"><button class="ddb" id="ddb" type="button" aria-haspopup="true" aria-expanded="false">Login <span>▾</span></button><div class="ddm"><a href="#login" id="navlog">Student login</a><a href="#admin">Admin login</a></div></div><a class="btn p" href="#enroll">Enroll</a></div></div></nav>
+
+<main class="view on" id="v-home">
+<header class="hero"><div class="wrap"><div>
+<div class="eyebrow">Research programme · BRACU CSE</div>
+<h1>Learn research from those who <em>won</em></h1>
+<p>A complete step-by-step programme on the thesis journey, built for BRACU CSE students and taught by seniors awarded Thesis of the Year.</p>
+<div class="cta"><a class="btn p" href="#enroll">Enroll now</a><a class="btn o" href="#courses">View topics</a></div></div>
+<div class="frame"><div class="ein dyn" id="ein"></div><div class="cap"><b>Alan Turing</b><span>The Father of Modern Computers</span></div></div>
+</div><div class="wrap"><div class="stats"><div><i>8</i><b>Chapters</b><span>First idea to final defense</span></div><div><i>★</i><b>Award-winning</b><span>Thesis of the Year mentors</span></div><div><i>❐</i><b>Resources</b><span>Papers, notes and templates</span></div><div><i>✓</i><b>Certificate</b><span>On completion</span></div></div></div></header>
+
+<section id="courses"><div class="wrap"><div class="eyebrow">Topics covered</div><h2>The BRACU Research Blueprint</h2><p class="sub">Eight chapters from first idea to final defense. Videos, notes and links are available to enrolled students.</p><div class="grid dyn" id="outline"></div></div></section>
+
+<section class="band"><div class="wrap"><div class="eyebrow">Built for CSE</div><h2>Research for the Department of CSE</h2><p class="sub">Every lesson is shaped around how thesis work really runs in BRAC University’s Computer Science and Engineering department.</p>
+<div class="grid g4"><div class="card"><div class="ico">01</div><h4>CSE research areas</h4><p>AI and ML, vision, NLP, networks, security and systems.</p></div><div class="card"><div class="ico">02</div><h4>Proven methods</h4><p>Approaches from Thesis of the Year recipients.</p></div><div class="card"><div class="ico">03</div><h4>Curated resources</h4><p>CSE theses, papers, notes and templates with every plan.</p></div><div class="card"><div class="ico">04</div><h4>Certified</h4><p>A Windsor Academy certificate of completion.</p></div></div></div></section>
+
+<section id="mentors" class="glassbg"><div class="wrap"><div class="eyebrow">Faculty</div><h2>Taught by Thesis of the Year winners</h2><p class="sub"></p><div class="grid g3 dyn" id="mgrid"></div></div></section>
+
+<section class="band" id="pricing"><div class="wrap" style="text-align:center"><div class="eyebrow">Tuition</div><h2>Choose your plan</h2><p class="sub" style="margin-inline:auto">One subscription, one student, one device.</p>
+<div class="toggle"><button id="m" class="on">Monthly</button><button id="y">Yearly</button></div>
+<div class="grid dyn" id="plans" style="text-align:left;max-width:800px;margin:auto"></div>
+<p class="fine">Each purchase creates one login for one student on one device. Accounts cannot be shared.</p></div></section>
+
+<section id="faq"><div class="wrap" style="max-width:760px"><div class="eyebrow">FAQ</div><h2>Good questions</h2><p class="sub"></p>
+<details class="faq"><summary>Who can enroll?</summary><p>Only students of the Department of Computer Science and Engineering at BRAC University, using their BRAC G-Suite email.</p></details>
+<details class="faq"><summary>Who teaches the lessons?</summary><p>BRAC University seniors who completed their thesis and won Thesis of the Year.</p></details>
+<details class="faq"><summary>Can I share my login?</summary><p>No. Each login works on one device and one account is allowed per student.</p></details>
+<details class="faq"><summary>What is the difference between the plans?</summary><p>Starter gives all 8 chapters, resources and a certificate. Full Access adds live Q&amp;A sessions with mentors.</p></details>
+<details class="faq"><summary>How can I pay?</summary><p>bKash or BRAC Bank transfer. Your login is created after we verify payment.</p></details>
+</div></section>
+</main>
+
+<main class="view" id="v-enroll"><div class="wrap"><a class="back" href="#pricing">← Back</a><div class="co">
+<div class="panel"><div class="eyebrow">Enrollment</div><h3>Your details</h3>
+<p class="secure" style="margin-top:-8px">Open to BRACU CSE students only. One login is created per student.</p>
+<div class="two"><div><label for="en">Full name</label><input id="en" autocomplete="name"></div><div><label for="ei">BRACU ID</label><input id="ei" inputmode="numeric" maxlength="8" placeholder="e.g. 24101261"></div></div>
+<div class="two"><div><label for="ee">BRAC G-Suite email</label><input id="ee" type="email" autocomplete="email" placeholder="name@g.bracu.ac.bd"></div><div><label for="ep">Phone</label><input id="ep" type="tel" autocomplete="tel" placeholder="01XXXXXXXXX"></div></div>
+<label for="es">Semester in BRACU</label><select id="es" class="dyn"></select>
+<label class="done" style="margin-top:20px"><input type="checkbox" id="ec"> I am a student of the Department of CSE, BRAC University</label>
+<p style="margin:22px 0 0"><button class="btn p" id="eb" type="button" style="width:100%">Continue to payment</button></p>
+<div class="err dyn" id="eerr"></div></div>
+<div class="panel sum"><h3>Your plan</h3><label for="epl">Plan</label><select id="epl" class="dyn"></select><label for="ebl">Billing</label><select id="ebl"><option value="m">Monthly</option><option value="y">Yearly</option></select>
+<div class="row" style="margin-top:18px"><span>Plan</span><span class="dyn" id="eps"></span></div><div class="row tot"><span>Total</span><span class="dyn" id="ept"></span></div><p class="secure">Payment details come next.</p></div>
+</div></div></main>
+
+<main class="view" id="v-checkout"><div class="wrap"><a class="back" href="#enroll">← Edit details</a><div class="co">
+<div class="panel"><div class="eyebrow">Enrollment</div><h3>Choose how to pay</h3>
+<div class="methods"><button class="mt on" id="mb" type="button"><b>bKash</b><span>Mobile banking</span></button><button class="mt" id="mk" type="button"><b>BRAC Bank</b><span>Bank transfer</span></button></div>
+<div class="steps dyn" id="steps"></div>
+<div class="steps dyn" id="enr"></div>
+<label for="tx" class="dyn" id="txl">Transaction ID</label><input id="tx">
+<p style="margin:26px 0 0"><button class="btn p" id="sub" type="button" style="width:100%">Submit payment details</button></p>
+<div class="secure" id="msg">One account per student. Login details are sent after payment is verified.</div></div>
+<div class="panel sum"><h3>Order summary</h3><div class="row"><span class="dyn" id="sp"></span><span class="dyn" id="sb"></span></div><div class="row"><span>Billing</span><span class="dyn" id="sc"></span></div><div class="row tot"><span>Total</span><span class="dyn" id="st"></span></div><p class="secure dyn" id="sf"></p></div>
+</div></div></main>
+
+<main class="view" id="v-login"><div class="wrap"><div class="login panel"><div class="eyebrow">Student portal</div><h3>Sign in</h3>
+<label for="le">Email</label><input id="le" type="email" autocomplete="username">
+<label for="lc">Access code</label><input id="lc" type="password" autocomplete="current-password">
+<p style="margin:24px 0 0"><button class="btn p" id="lb" type="button" style="width:100%">Sign in</button></p>
+<div class="err dyn" id="le2"></div><p class="secure">Your login is tied to one device. Not enrolled yet? <a href="#pricing" style="color:var(--gold)">View plans</a>.</p></div></div></main>
+
+<main class="view" id="v-learn"><div class="wrap">
+<div class="lh"><div><div class="eyebrow">Student portal</div><h2 style="margin:8px 0 0">Welcome, <span class="dyn" id="wn"></span><span class="pill dyn" id="wp"></span></h2></div><button class="btn o" id="lo" type="button">Sign out</button></div>
+<div class="bar"><i id="pb"></i></div><div class="secure dyn" id="pt"></div>
+<div class="lg"><div id="lch" class="dyn" style="margin-top:20px"></div>
+<div style="margin-top:20px;display:grid;gap:20px">
+<div class="panel"><div class="eyebrow">Resources</div><h3 style="font-size:24px">Thesis papers and links</h3><div class="res dyn" id="res"></div></div>
+<div class="panel"><div class="eyebrow">Live sessions</div><h3 style="font-size:24px">Mentor Q&amp;A</h3><div class="dyn" id="live"></div></div>
+<div class="panel"><div class="eyebrow">Certificate</div><h3 style="font-size:24px">Completion</h3><div class="secure dyn" id="cert"></div></div>
+</div></div></div></main>
+
+<main class="view" id="v-admin">
+<div class="al" id="ologin">
+ <div class="alb"><div class="logo">Windsor<span> Academy</span></div>
+  <div><div class="eyebrow" style="color:#d6ab7c">Admin portal</div><h2>Run your academy with clarity.</h2><p>Manage chapters, mentors, plans and students, and watch your growth in one place.</p><ul><li>Live charts for students and revenue</li><li>Edit every part of the site, no code</li><li>Publish updates in one click</li></ul></div>
+  <small>© 2026 Windsor Academy · BRACU CSE</small></div>
+ <div class="alf"><div class="panel alp"><div class="eyebrow">Admin sign in</div><h3>Welcome back</h3>
+  <p class="secure" style="margin-top:-6px">Access is verified through the Claude account that owns this site. There is no password to share or guess.</p>
+  <div class="err dyn" id="ostat" style="color:var(--muted)"></div>
+  <p style="margin:18px 0 0"><button class="btn p" id="ochk" type="button" style="width:100%">Verify admin access</button></p>
+  <p class="secure"><a href="#home" style="color:var(--gold)">← Back to website</a></p></div></div>
+</div>
+<div class="hide" id="odash"><div id="ob" class="dyn"></div></div></main>
+
+<footer><div class="wrap"><div><b>Windsor Academy</b><br>Research for BRACU CSE students.</div><div class="dyn" id="fc"></div><div>© 2026 Windsor Academy<br>Not officially affiliated with BRAC University.</div></div></footer>
+
+<script type="application/json" id="cfg">{"email":"your-email@example.com","bkash":{"number":"01XXXXXXXXX","type":"Personal / Merchant"},"bank":{"name":"Windsor Academy","account":"XXXXXXXXXXXXX","bank":"BRAC Bank","branch":"Your branch"},"plans":[{"id":"Starter","m":399,"y":4599,"save":189,"feat":["All 8 chapters, in full","Thesis paper links and resources","Certificate of completion"]},{"id":"Full Access","m":699,"y":8099,"save":289,"hot":1,"feat":["All 8 chapters, in full","Live Q&A sessions with mentors","Certificate of completion"]}],"mentors":[{"n":"Mentor Name","i":"AR","r":"BRACU CSE · Thesis of the Year 20XX","d":"Department, thesis title and a short line about their research journey and what they teach here.","tag":"Chapters 1–3","photo":""},{"n":"Mentor Name","i":"SK","r":"BRACU CSE · Thesis of the Year 20XX","d":"Department, thesis title and a short line about their research journey and what they teach here.","tag":"Chapters 4–6","photo":""},{"n":"Mentor Name","i":"MH","r":"BRACU CSE · Thesis of the Year 20XX","d":"Department, thesis title and a short line about their research journey and what they teach here.","tag":"Chapters 7–8","photo":""}],"chapters":[{"t":"Choosing a topic and a supervisor","d":"Pick a researchable CSE problem, check novelty, approach faculty.","video":"","notes":"","links":[]},{"t":"Literature review that actually helps","d":"Find, read and organise IEEE and ACM papers with a repeatable system.","video":"","notes":"","links":[]},{"t":"Research proposal and methodology","d":"Write a proposal that gets approved and a method that holds.","video":"","notes":"","links":[]},{"t":"Data collection and experiments","d":"Plan datasets, experiments and benchmarks, and avoid common mistakes.","video":"","notes":"","links":[]},{"t":"Analysis and results","d":"Present results with clear tables, plots and evaluation metrics.","video":"","notes":"","links":[]},{"t":"Writing the thesis paper","d":"Structure, citations, LaTeX formatting and plagiarism checks.","video":"","notes":"","links":[]},{"t":"Publishing and conferences","d":"Turn your thesis into a paper and pick conferences and journals.","video":"","notes":"","links":[]},{"t":"Preparing for the defense","d":"Slides, rehearsal and handling tough panel questions.","video":"","notes":"","links":[]}],"resources":[{"t":"Sample award-winning thesis (add link)","u":"#"},{"t":"Proposal template (add link)","u":"#"}],"live":{"next":"Next live Q&A: add date","link":"#"},"students":[{"name":"Demo Student","email":"demo@windsor.academy","plan":"Full Access","status":"active","billing":"m","joined":"2026-11-20","hash":"5a94cffaff14d4477033fe0c4298439e36b177eac88df03453c5f5d033d805c7"}]}</script>
+
+<script>
+var $=function(i){return document.getElementById(i)},CFG=JSON.parse($("cfg").textContent),MSG0=$("msg").textContent;
+var yearly=false,method="bkash",plan=CFG.plans[1]||CFG.plans[0];
+function clone(o){return JSON.parse(JSON.stringify(o))}
+function esc(s){return String(s==null?"":s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;")}
+function ls(k,v){try{if(v===undefined)return localStorage.getItem(k);if(v===null)localStorage.removeItem(k);else localStorage.setItem(k,v)}catch(e){return null}}
+function dev(){var d=ls("wa_dev");if(!d){d=Math.random().toString(36).slice(2)+Date.now().toString(36);ls("wa_dev",d)}return d}
+function fmt(n){return Number(n).toLocaleString("en-US")+" Tk"}
+async function sha(s){var b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s));return Array.from(new Uint8Array(b)).map(function(x){return("0"+x.toString(16)).slice(-2)}).join("")}
+/* student auth adapter. Real one-device enforcement needs a server; this checks the access code hash and remembers the device in this browser only. */
+async function verify(email,code){email=email.toLowerCase();var h=await sha(email+"|"+code),a=CFG.students.filter(function(x){return x.email.toLowerCase()==email&&x.hash==h})[0];
+ if(!a)return{ok:0,e:"Invalid email or access code."};if(a.status!="active")return{ok:0,e:"This account is not active. Contact support."};
+ var b=ls("wa_bind:"+email);if(b&&b!=dev())return{ok:0,e:"This login is already active on another device."};ls("wa_bind:"+email,dev());return{ok:1,u:{name:a.name,email:email,plan:a.plan}}}
+function user(){try{return JSON.parse(ls("wa_user"))}catch(e){return null}}
+function vidHTML(c){if(!c.video)return '<div class="vid"><div><div class="pl">▶</div><small>VIDEO COMING SOON</small></div></div>';
+ if(/\.(mp4|webm)(\?|$)/i.test(c.video))return '<div class="vid"><video controls controlsList="nodownload" preload="none" src="'+esc(c.video)+'"></video></div>';
+ return '<div class="vid"><iframe src="'+esc(c.video)+'" allowfullscreen loading="lazy"></iframe></div>'}
+function landing(){
+ $("outline").innerHTML=CFG.chapters.map(function(c,i){return '<div class="card topic"><div class="num">'+("0"+(i+1)).slice(-2)+'</div><div><h4>'+esc(c.t)+'</h4><p>'+esc(c.d)+'</p></div></div>'}).join("");
+ $("mgrid").innerHTML=CFG.mentors.map(function(m){return '<div class="gc"><div class="ph">'+(m.photo?'<img alt="'+esc(m.n)+'" src="'+esc(m.photo)+'">':esc(m.i))+'</div><h4>'+esc(m.n)+'</h4><div class="role">'+esc(m.r)+'</div><p>'+esc(m.d)+'</p><span class="tag">'+esc(m.tag)+'</span></div>'}).join("");
+ $("fc").innerHTML='Contact: '+esc(CFG.email)+'<br>Facebook · YouTube · Instagram';renderPlans()}
+function renderPlans(){$("plans").innerHTML=CFG.plans.map(function(p,i){return '<div class="card'+(p.hot?' hot':'')+'">'+(p.hot?'<span class="rib">Recommended</span>':'')+'<h4>'+esc(p.id)+'</h4><div class="price">'+Number(yearly?p.y:p.m).toLocaleString("en-US")+' <small>Tk / '+(yearly?'year':'month')+'</small></div><div class="save">'+(yearly?'Save '+p.save+' Tk a year':'')+'</div><ul>'+p.feat.map(function(f){return '<li>'+esc(f)+'</li>'}).join("")+'</ul><button class="btn '+(p.hot?'p':'o')+'" data-i="'+i+'">Enroll in '+esc(p.id)+'</button></div>'}).join("");
+ document.querySelectorAll("#plans button").forEach(function(b){b.onclick=function(){plan=CFG.plans[b.dataset.i];location.hash="enroll"}})}
+function tg(){$("m").classList.toggle("on",!yearly);$("y").classList.toggle("on",yearly);renderPlans()}
+$("m").onclick=function(){yearly=false;tg()};$("y").onclick=function(){yearly=true;tg()};
+function steps(){var s=$("steps"),a=yearly?plan.y:plan.m,B=CFG.bkash,K=CFG.bank;
+ if(method=="bkash"){s.innerHTML='<b>Pay with bKash</b><ol><li>Open bKash and choose Send Money / Payment.</li><li>Send <b>'+fmt(a)+'</b> to <b>'+esc(B.number)+'</b> ('+esc(B.type)+').</li><li>Copy the Transaction ID (TrxID) and enter it below.</li></ol>';$("txl").textContent="bKash TrxID"}
+ else{s.innerHTML='<b>Pay with BRAC Bank transfer</b><div class="kv"><span>Account name</span><b>'+esc(K.name)+'</b></div><div class="kv"><span>Account number</span><b>'+esc(K.account)+'</b></div><div class="kv"><span>Bank / Branch</span><b>'+esc(K.bank)+', '+esc(K.branch)+'</b></div><ol><li>Transfer <b>'+fmt(a)+'</b> from your banking app or a branch.</li><li>Enter the transaction reference below.</li></ol>';$("txl").textContent="Bank transaction reference"}}
+function co(){var a=yearly?plan.y:plan.m;$("enr").innerHTML="<b>Enrolling</b>"+[["Name",ENR.n],["BRACU ID",ENR.id],["G-Suite email",ENR.em],["Phone",ENR.ph],["Semester",ENR.se]].map(function(r){return '<div class="kv"><span>'+r[0]+'</span><b>'+esc(r[1])+"</b></div>"}).join("");$("sp").textContent=plan.id;$("sb").textContent=fmt(a);$("sc").textContent=yearly?"Yearly":"Monthly";$("st").textContent=fmt(a);$("sf").textContent=plan.feat.join(" · ");steps()}
+$("mb").onclick=function(){method="bkash";$("mb").classList.add("on");$("mk").classList.remove("on");steps()};
+$("mk").onclick=function(){method="bank";$("mk").classList.add("on");$("mb").classList.remove("on");steps()};
+$("sub").onclick=function(){if(!ENR){location.hash="enroll";return}var t=$("tx").value.trim();
+ if(!t){$("msg").textContent="Please enter your transaction ID.";return}
+ var e=encodeURIComponent,body="Plan: "+plan.id+" ("+(yearly?"Yearly":"Monthly")+")\nAmount: "+(yearly?plan.y:plan.m)+" Tk\nMethod: "+(method=="bkash"?"bKash":"BRAC Bank")+"\nName: "+ENR.n+"\nBRACU ID: "+ENR.id+"\nG-Suite email: "+ENR.em+"\nPhone: "+ENR.ph+"\nSemester: "+ENR.se+"\nTransaction: "+t;
+ $("msg").textContent="Opening your email app to send the payment details. We will send your login after verification.";
+ location.href="mailto:"+CFG.email+"?subject="+e("Windsor Academy enrollment – "+plan.id)+"&body="+e(body)};
+var ENR=null;
+function ord(n){var s=["th","st","nd","rd"],v=n%100;return n+(s[(v-20)%10]||s[v]||s[0])}
+function enrSum(){var p=CFG.plans[+$("epl").value]||plan,y=$("ebl").value=="y";$("eps").textContent=p.id;$("ept").textContent=fmt(y?p.y:p.m)}
+function enr(){var o='<option value="">Select semester</option>';for(var i=1;i<=12;i++)o+='<option>'+ord(i)+' semester</option>';$("es").innerHTML=o+'<option>13th semester or later</option>';
+ $("epl").innerHTML=CFG.plans.map(function(p,i){return '<option value="'+i+'">'+esc(p.id)+'</option>'}).join("");
+ $("epl").value=Math.max(0,CFG.plans.indexOf(plan));$("ebl").value=yearly?"y":"m";if(ENR){$("en").value=ENR.n;$("ei").value=ENR.id;$("ee").value=ENR.em;$("ep").value=ENR.ph;$("es").value=ENR.se;$("ec").checked=true}enrSum()}
+$("epl").onchange=enrSum;$("ebl").onchange=enrSum;
+$("eb").onclick=function(){var v=function(i){return $(i).value.trim()},er=$("eerr"),n=v("en"),id=v("ei"),em=v("ee").toLowerCase(),ph=v("ep").replace(/[\s-]/g,""),se=$("es").value;
+ if(n.length<3){er.textContent="Please enter your full name.";return}
+ if(!/^\d{8}$/.test(id)){er.textContent="BRACU ID must be 8 digits.";return}
+ if(!/^[^\s@]+@g\.bracu\.ac\.bd$/.test(em)){er.textContent="Use your BRAC G-Suite email (ending in @g.bracu.ac.bd).";return}
+ if(!/^(\+?88)?01\d{9}$/.test(ph)){er.textContent="Enter a valid Bangladeshi mobile number.";return}
+ if(!se){er.textContent="Please select your semester.";return}
+ if(!$("ec").checked){er.textContent="Enrollment is open to BRACU CSE students only. Please confirm above.";return}
+ if(CFG.students.some(function(s){return s.email.toLowerCase()==em})){er.textContent="This email already has a Windsor Academy login. Please sign in instead.";return}
+ plan=CFG.plans[+$("epl").value];yearly=$("ebl").value=="y";ENR={n:n,id:id,em:em,ph:ph,se:se};er.textContent="";location.hash="checkout"};
+$("lb").onclick=async function(){var r=await verify($("le").value.trim(),$("lc").value.trim());if(!r.ok){$("le2").textContent=r.e;return}ls("wa_user",JSON.stringify(r.u));location.hash="learn"};
+$("lo").onclick=function(){ls("wa_user",null);location.hash="home"};
+function prog(){try{return JSON.parse(ls("wa_prog")||"[]")}catch(e){return[]}}
+function learn(){var u=user();if(!u){location.hash="login";return}
+ $("wn").textContent=u.name.split(" ")[0];$("wp").textContent=u.plan;var p=prog();
+ $("lch").innerHTML=CFG.chapters.map(function(c,i){var d=p.indexOf(i)>-1;return '<details class="ch"'+(i==0?' open':'')+'><summary><span class="num">'+("0"+(i+1)).slice(-2)+'</span><span class="t">'+esc(c.t)+'<small>'+esc(c.d)+'</small></span><span class="badge">'+(d?'Completed':'Watch')+'</span><span class="chev">▾</span></summary><div class="body">'+vidHTML(c)+(c.notes?'<div class="notes">'+esc(c.notes)+'</div>':'')+'<div class="cl">'+(c.links||[]).map(function(l){return '<a href="'+esc(l.u)+'" target="_blank" rel="noopener">'+esc(l.t)+' ↗</a>'}).join("")+'</div><label class="done"><input type="checkbox" data-i="'+i+'"'+(d?' checked':'')+'> Mark chapter as completed</label></div></details>'}).join("");
+ document.querySelectorAll(".done input").forEach(function(b){b.onchange=function(){var q=prog(),i=+b.dataset.i,k=q.indexOf(i);if(b.checked&&k<0)q.push(i);if(!b.checked&&k>-1)q.splice(k,1);ls("wa_prog",JSON.stringify(q));learn()}});
+ $("res").innerHTML=CFG.resources.map(function(r){return '<a href="'+esc(r.u)+'" target="_blank" rel="noopener">'+esc(r.t)+'</a>'}).join("");
+ var L=CFG.live;$("live").innerHTML=u.plan=="Full Access"?'<p class="secure" style="margin:0 0 14px">'+esc(L.next)+'</p><a class="btn p" style="width:100%" href="'+esc(L.link)+'" target="_blank" rel="noopener">Join live session</a>':'<p class="secure" style="margin:0 0 14px">Live Q&amp;A with mentors is part of the Full Access plan.</p><a class="btn o" style="width:100%" href="#pricing">Upgrade</a>';
+ var n=p.length,t=CFG.chapters.length;$("pb").style.width=(n/t*100)+"%";$("pt").textContent=n+" of "+t+" chapters completed";
+ $("cert").innerHTML=n==t?'<b style="color:var(--gold)">Unlocked.</b> Email '+esc(CFG.email)+' to receive your certificate.':'Complete all '+t+' chapters to unlock your certificate.'}
+
+/* ===== OWNER DASHBOARD ===== */
+var W,dirty=false,tab="overview",stat="",nsmsg="",SAMPLE=null;
+var TPL={chapters:{t:"New chapter",d:"",video:"",notes:"",links:[]},resources:{t:"",u:""},mentors:{n:"Mentor Name",i:"MN",r:"",d:"",tag:"",photo:""}};
+var TABS=[["overview","Overview","◎"],["chapters","Chapters","☰"],["resources","Resources & live","❐"],["mentors","Mentors","☺"],["plans","Plans","◈"],["payments","Payments & contact","✉"],["students","Students","☻"]];
+var SUBS={overview:"Students, revenue and content health at a glance.",chapters:"Titles, videos, notes and links for each chapter.",resources:"Student resources and your next live session.",mentors:"Faculty shown on the landing page.",plans:"Prices and features of each plan.",payments:"Where students send payments, and your contact email.",students:"Create, pause and remove student logins."};
+function get(p){return p.split(".").reduce(function(a,k){return a==null?a:a[k]},W)}
+function set(p,v){var k=p.split("."),o=W;for(var i=0;i<k.length-1;i++)o=o[k[i]];o[k[k.length-1]]=v}
+function F(p,l,o){o=o||{};var v=get(p);if(o.t=="lines")v=(v||[]).join("\n");if(o.t=="links")v=(v||[]).map(function(x){return x.t+" | "+x.u}).join("\n");
+ return '<div><label>'+l+'</label>'+(o.ta?'<textarea data-p="'+p+'" data-t="'+(o.t||"")+'" rows="'+o.ta+'">'+esc(v)+'</textarea>':'<input data-p="'+p+'"'+(o.n?' data-n="1"':'')+' value="'+esc(v)+'">')+'</div>'}
+function AB(a,k,i,l,c){return '<button type="button" class="btn sm '+(c||'o')+'" data-a="'+a+'" data-k="'+k+'" data-i="'+i+'">'+l+'</button>'}
+function bar(){return '<div class="pubbar"><span>'+(stat||(dirty?"You have unpublished changes.":"All changes are published."))+'</span><span style="display:flex;gap:8px">'+(dirty?AB("disc","","0","Discard"):"")+'<button type="button" class="btn sm p" data-a="pub">Publish changes</button></span></div>'}
+/* ---- analytics ---- */
+function today(){return new Date().toISOString().slice(0,10)}
+function sampleStudents(){var seed=7,rnd=function(){seed=(seed*9301+49297)%233280;return seed/233280},out=[],now=Date.now();
+ for(var i=0;i<26;i++){var day=Math.floor(Math.pow(rnd(),.8)*55),p=CFG.plans[rnd()<.4?CFG.plans.length-1:0];out.push({name:"Sample Student "+(i+1),email:"sample"+i+"@g.bracu.ac.bd",plan:p.id,billing:rnd()<.3?"y":"m",status:rnd()<.9?"active":"revoked",joined:new Date(now-day*864e5).toISOString().slice(0,10)})}return out}
+function calc(list){var act=list.filter(function(s){return s.status=="active"}),by={},rv={},mrr=0,bil={m:0,y:0},now=Date.now(),wk=[],base=0,i;
+ W.plans.forEach(function(p){by[p.id]=0;rv[p.id]=0});
+ act.forEach(function(s){var p=W.plans.filter(function(x){return x.id==s.plan})[0]||W.plans[0],y=s.billing=="y",v=y?p.y/12:p.m;by[p.id]=(by[p.id]||0)+1;rv[p.id]=(rv[p.id]||0)+v;mrr+=v;bil[y?"y":"m"]++});
+ for(i=0;i<8;i++)wk.push({l:new Date(now-(7-i)*6048e5).toLocaleDateString("en-US",{month:"short",day:"numeric"}),n:0,v:0});
+ list.forEach(function(s){var age=Math.floor((now-Date.parse(s.joined||today()))/864e5),ix=7-Math.floor(age/7);if(ix<0||isNaN(ix))base++;else if(ix<8)wk[ix].n++});
+ var run=base;wk.forEach(function(w){run+=w.n;w.v=run});
+ return{total:list.length,act:act.length,paused:list.length-act.length,by:by,rv:rv,mrr:Math.round(mrr),bil:bil,wk:wk}}
+function spark(v){var mx=Math.max.apply(null,v.concat([1])),mn=Math.min.apply(null,v),r=Math.max(1,mx-mn),pts=v.map(function(x,i){return (i*100/Math.max(1,v.length-1)).toFixed(1)+","+(36-(x-mn)/r*30).toFixed(1)}).join(" ");
+ return '<svg class="sp" viewBox="0 0 100 40" preserveAspectRatio="none"><polyline points="'+pts+'" fill="none" stroke="currentColor" stroke-opacity=".75" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" vector-effect="non-scaling-stroke"/></svg>'}
+var PAL=["var(--c1)","var(--c2)","var(--c3)","var(--c4)"];
+function donut(parts,center,sub){var tot=parts.reduce(function(a,p){return a+p.v},0),R=42,C=2*Math.PI*R,off=0,seg="";
+ parts.forEach(function(p,i){var L=tot?p.v/tot*C:0,g=L>3?L-2:L;seg+='<circle cx="60" cy="60" r="'+R+'" fill="none" style="stroke:'+PAL[i%4]+'" stroke-width="16" stroke-dasharray="'+g+' '+(C-g)+'" stroke-dashoffset="'+(-off)+'" transform="rotate(-90 60 60)"/>';off+=L});
+ return '<div class="donut"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="42" fill="none" stroke-width="16" style="stroke:var(--bg2)"/>'+seg+'<text x="60" y="61" text-anchor="middle" class="dc">'+center+'</text><text x="60" y="73" text-anchor="middle" class="ds">'+sub+'</text></svg><ul class="lg2">'+parts.map(function(p,i){return '<li><i style="background:'+PAL[i%4]+'"></i>'+esc(p.l)+'<b>'+p.v+'</b></li>'}).join("")+'</ul></div>'}
+function bars(d){var Wd=320,H=176,pd=14,n=d.length,mx=Math.max.apply(null,d.map(function(x){return x.v}).concat([1])),sl=(Wd-pd*2)/n,bw=Math.min(52,sl-18),s="",k;
+ for(k=0;k<3;k++)s+='<line class="gl" x1="'+pd+'" x2="'+(Wd-pd)+'" y1="'+(H-28-k*(H-60)/2)+'" y2="'+(H-28-k*(H-60)/2)+'"/>';
+ d.forEach(function(x,i){var hh=x.v/mx*(H-60),bx=pd+i*sl+(sl-bw)/2,y=H-28-hh;s+='<rect x="'+bx+'" y="'+y+'" width="'+bw+'" height="'+Math.max(hh,2)+'" rx="10" style="fill:'+PAL[i%4]+'"/><text class="bv" x="'+(bx+bw/2)+'" y="'+(y-6)+'" text-anchor="middle">'+Number(x.v).toLocaleString("en-US")+'</text><text class="bl" x="'+(bx+bw/2)+'" y="'+(H-10)+'" text-anchor="middle">'+esc(x.l)+'</text>'});
+ return '<svg viewBox="0 0 '+Wd+' '+H+'">'+s+'</svg>'}
+function lineC(pts){var Wd=520,H=210,pl=34,pr=14,pt=14,pb=30,n=pts.length,mx=Math.max.apply(null,pts.map(function(p){return p.v}).concat([4])),X=function(i){return pl+i*(Wd-pl-pr)/Math.max(1,n-1)},Y=function(v){return H-pb-v/mx*(H-pt-pb)},
+ d=pts.map(function(p,i){return (i?"L":"M")+X(i).toFixed(1)+" "+Y(p.v).toFixed(1)}).join(" "),s="",k;
+ for(k=0;k<4;k++){var yv=Y(mx*k/3);s+='<line class="gl" x1="'+pl+'" x2="'+(Wd-pr)+'" y1="'+yv+'" y2="'+yv+'"/><text class="gt" x="'+(pl-6)+'" y="'+(yv+3)+'" text-anchor="end">'+Math.round(mx*k/3)+'</text>'}
+ pts.forEach(function(p,i){s+='<text class="gt" x="'+X(i)+'" y="'+(H-10)+'" text-anchor="middle">'+p.l+'</text>'});
+ var dots=pts.map(function(p,i){return '<circle cx="'+X(i)+'" cy="'+Y(p.v)+'" r="4" style="fill:var(--surface);stroke:var(--c1)" stroke-width="2.5"/>'}).join("");
+ return '<svg viewBox="0 0 '+Wd+' '+H+'"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--c1);stop-opacity:.38"/><stop offset="1" style="stop-color:var(--c1);stop-opacity:0"/></linearGradient></defs>'+s+'<path d="'+d+' L'+X(n-1)+' '+(H-pb)+' L'+X(0)+' '+(H-pb)+' Z" fill="url(#ag)"/><path d="'+d+'" fill="none" style="stroke:var(--c1)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>'+dots+'</svg>'}
+function overview(){var L=SAMPLE?sampleStudents():W.students,S=calc(L),hot=W.plans.filter(function(p){return p.hot})[0]||W.plans[W.plans.length-1],share=S.act?Math.round((S.by[hot.id]||0)/S.act*100):0,
+ cum=S.wk.map(function(w){return w.v}),nw=S.wk.map(function(w){return w.n}),n=W.chapters.length||1,
+ cm=[["Chapter videos",W.chapters.filter(function(c){return c.video}).length,n],["Chapter notes",W.chapters.filter(function(c){return c.notes}).length,n],["Chapters with links",W.chapters.filter(function(c){return c.links&&c.links.length}).length,n],["Mentor photos",W.mentors.filter(function(m){return m.photo}).length,W.mentors.length||1]],
+ rec=L.slice().sort(function(a,b){return String(b.joined).localeCompare(String(a.joined))}).slice(0,6);
+ return (SAMPLE?'<p class="secure" style="margin:-8px 0 16px"><span class="chip">Sample data</span>  These charts show example numbers so you can see the layout. Add real students or switch to real data above.</p>':'')+
+ '<div class="kp"><div class="kc hl"><span>Total students</span><b>'+S.total+'</b><small>'+S.act+' active</small>'+spark(cum)+'</div><div class="kc"><span>New this week</span><b>'+S.wk[7].n+'</b><small>'+nw.reduce(function(a,b){return a+b},0)+' in 8 weeks</small>'+spark(nw)+'</div><div class="kc"><span>Est. monthly revenue</span><b>'+S.mrr.toLocaleString("en-US")+' <small style="font-size:14px">Tk</small></b><small>from active students</small></div><div class="kc"><span>'+esc(hot.id)+' share</span><b>'+share+'%</b><small>of active students</small></div></div>'+
+ '<div class="cg"><div class="cc s4"><h4>Student growth</h4><div class="cs">Total students over the last 8 weeks</div>'+lineC(S.wk)+'</div>'+
+ '<div class="cc s2"><h4>Students by plan</h4><div class="cs">Active logins</div>'+donut(W.plans.map(function(p){return{l:p.id,v:S.by[p.id]||0}}),S.act,"active")+'</div>'+
+ '<div class="cc s2"><h4>Billing mix</h4><div class="cs">Monthly vs yearly</div>'+donut([{l:"Monthly",v:S.bil.m},{l:"Yearly",v:S.bil.y}],S.act,"active")+'</div>'+
+ '<div class="cc s2"><h4>Revenue by plan</h4><div class="cs">Estimated Tk per month</div>'+bars(W.plans.map(function(p){return{l:p.id,v:Math.round(S.rv[p.id]||0)}}))+'</div>'+
+ '<div class="cc s2"><h4>Content health</h4><div class="cs">What is ready on the site</div>'+cm.map(function(c){return '<div class="pr"><div class="prh"><span>'+c[0]+'</span><b>'+c[1]+'/'+c[2]+'</b></div><div class="prb"><i style="width:'+Math.round(c[1]/c[2]*100)+'%"></i></div></div>'}).join("")+'</div>'+
+ '<div class="cc s6"><h4>Latest students</h4><div class="cs">Most recent enrollments</div><div style="overflow-x:auto"><table><tr><th>Name</th><th>Plan</th><th>Billing</th><th>Joined</th><th>Status</th></tr>'+rec.map(function(s){return '<tr><td>'+esc(s.name)+'</td><td>'+esc(s.plan)+'</td><td>'+(s.billing=="y"?"Yearly":"Monthly")+'</td><td>'+esc(s.joined||"")+'</td><td><span class="chip'+(s.status=="active"?' ok':'')+'">'+esc(s.status)+'</span></td></tr>'}).join("")+'</table></div></div></div>'}
+function tabBody(){var h="";
+ if(tab=="overview")return overview();
+ if(tab=="chapters")h+=W.chapters.map(function(c,i){return '<div class="oc"><div class="ocr"><b>Chapter '+(i+1)+'</b><span>'+AB("up","chapters",i,"↑")+AB("del","chapters",i,"Remove","dg")+'</span></div><div class="two">'+F("chapters."+i+".t","Title")+F("chapters."+i+".video","Video link (YouTube/Vimeo embed or .mp4)")+'</div>'+F("chapters."+i+".d","Short description (shown on landing page)")+F("chapters."+i+".notes","Notes (students only)",{ta:4})+F("chapters."+i+".links","Links, one per line: Title | URL",{ta:3,t:"links"})+'</div>'}).join("")+AB("add","chapters","0","+ Add chapter","p");
+ if(tab=="resources"){h+='<div class="oc"><b>Resources (students only)</b>'+W.resources.map(function(r,i){return '<div class="two" style="align-items:end">'+F("resources."+i+".t","Title")+'<div style="display:flex;gap:8px;align-items:end"><div style="flex:1">'+F("resources."+i+".u","URL")+'</div>'+AB("del","resources",i,"✕","dg")+'</div></div>'}).join("")+'<p>'+AB("add","resources","0","+ Add link","p")+'</p></div><div class="oc"><b>Live Q&A session (Full Access)</b><div class="two">'+F("live.next","Next session text")+F("live.link","Meeting link")+'</div></div>'}
+ if(tab=="mentors")h+=W.mentors.map(function(m,i){return '<div class="oc"><div class="ocr"><b>'+esc(m.n)+'</b><span>'+AB("up","mentors",i,"↑")+AB("del","mentors",i,"Remove","dg")+'</span></div><div class="two">'+F("mentors."+i+".n","Name")+F("mentors."+i+".i","Initials")+F("mentors."+i+".r","Role line")+F("mentors."+i+".tag","Tag")+'</div>'+F("mentors."+i+".d","Description",{ta:3})+'<label>Photo</label><div style="display:flex;gap:14px;align-items:center">'+(m.photo?'<div class="ph" style="width:64px;height:64px;margin:0"><img alt="" src="'+esc(m.photo)+'"></div>':'')+'<input type="file" accept="image/*" data-ph="'+i+'"></div></div>'}).join("")+AB("add","mentors","0","+ Add mentor","p");
+ if(tab=="plans")h+=W.plans.map(function(p,i){return '<div class="oc"><b>'+esc(p.id)+'</b><div class="two">'+F("plans."+i+".m","Monthly price (Tk)",{n:1})+F("plans."+i+".y","Yearly price (Tk)",{n:1})+'</div>'+F("plans."+i+".save","Yearly saving shown (Tk)",{n:1})+F("plans."+i+".feat","Features, one per line",{ta:4,t:"lines"})+'</div>'}).join("");
+ if(tab=="payments")h+='<div class="oc"><b>bKash</b><div class="two">'+F("bkash.number","Number")+F("bkash.type","Account type")+'</div></div><div class="oc"><b>BRAC Bank</b><div class="two">'+F("bank.name","Account name")+F("bank.account","Account number")+F("bank.bank","Bank")+F("bank.branch","Branch")+'</div></div><div class="oc"><b>Contact</b>'+F("email","Support email (receives payment details)")+'</div>';
+ if(tab=="students"){h+='<div class="oc"><b>Add a student</b><div class="two"><div><label>Name</label><input id="ns_n"></div><div><label>Email</label><input id="ns_e" type="email"></div><div><label>Plan</label><select id="ns_p">'+W.plans.map(function(p){return '<option>'+esc(p.id)+'</option>'}).join("")+'</select></div><div><label>Billing</label><select id="ns_b"><option value="m">Monthly</option><option value="y">Yearly</option></select></div></div><label>Access code</label><div style="display:flex;gap:8px"><input id="ns_c">'+AB("gen","","0","Generate")+'</div><p style="margin-bottom:0">'+AB("addst","","0","Add student","p")+'</p><div class="secure" id="nsmsg">'+esc(nsmsg)+'</div></div><div class="oc" style="overflow-x:auto"><table><tr><th>Name</th><th>Email</th><th>Plan</th><th>Billing</th><th>Joined</th><th>Status</th><th></th></tr>'+W.students.map(function(s,i){return '<tr><td>'+esc(s.name)+'</td><td>'+esc(s.email)+'</td><td>'+esc(s.plan)+'</td><td>'+(s.billing=="y"?"Yearly":"Monthly")+'</td><td>'+esc(s.joined||"")+'</td><td><span class="chip'+(s.status=="active"?' ok':'')+'">'+esc(s.status)+'</span></td><td style="white-space:nowrap">'+AB("tog","",i,s.status=="active"?"Revoke":"Restore")+' '+AB("del","students",i,"Delete","dg")+'</td></tr>'}).join("")+'</table></div>'}
+ return h}
+function dash(){if(SAMPLE===null)SAMPLE=W.students.length<5;var T=TABS.filter(function(t){return t[0]==tab})[0];
+ var side='<aside class="sb"><div class="logo">Windsor<span> Academy</span></div><div class="sbp">Admin</div>'+TABS.map(function(t){return '<button type="button" class="'+(tab==t[0]?'on':'')+'" data-a="tab" data-k="'+t[0]+'"><i>'+t[2]+'</i>'+t[1]+'</button>'}).join("")+'<div class="sbf">Changes go live when you press Publish.</div></aside>';
+ var top='<div class="dtop"><div><div class="eyebrow">Admin dashboard</div><h2>'+T[1]+'</h2><p class="secure" style="margin:4px 0 0">'+SUBS[tab]+'</p></div><div class="acts">'+(tab=="overview"?'<button class="btn sm o" data-a="sample" type="button">'+(SAMPLE?"Use real data":"Preview sample data")+'</button>':'')+'<a class="btn sm o" href="#home">View site</a><button class="btn sm o" data-a="lock" type="button">Lock</button></div></div>';
+ $("ob").innerHTML='<div class="dh">'+side+'<section class="mn">'+top+tabBody()+bar()+'</section></div>'}
+function mark(){dirty=true;stat=""}
+$("ob").addEventListener("input",function(e){var t=e.target,p=t.dataset.p;if(!p)return;var v=t.value,k=t.dataset.t;
+ if(k=="lines")v=v.split("\n").map(function(s){return s.trim()}).filter(Boolean);
+ else if(k=="links")v=v.split("\n").map(function(s){var a=s.split("|");return{t:(a[0]||"").trim(),u:(a.slice(1).join("|")||"").trim()}}).filter(function(x){return x.t||x.u});
+ else if(t.dataset.n)v=+v||0;set(p,v);mark()});
+$("ob").addEventListener("change",function(e){var i=e.target.dataset.ph;if(i==null)return;var f=e.target.files[0];if(!f)return;var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=Math.min(1,360/Math.max(im.width,im.height)),c=document.createElement("canvas");c.width=im.width*s;c.height=im.height*s;c.getContext("2d").drawImage(im,0,0,c.width,c.height);W.mentors[i].photo=c.toDataURL("image/jpeg",.82);mark();dash()};im.src=r.result};r.readAsDataURL(f)});
+$("ob").addEventListener("click",async function(e){var b=e.target.closest("[data-a]");if(!b)return;var a=b.dataset.a,k=b.dataset.k,i=+b.dataset.i;
+ if(a=="tab"){tab=k;dash();window.scrollTo(0,0);return}
+ if(a=="sample"){SAMPLE=!SAMPLE;dash();return}
+ if(a=="lock"){$("ologin").classList.remove("hide");$("odash").classList.add("hide");$("ostat").textContent="Dashboard locked. Verify to continue.";return}
+ if(a=="gen"){var c=function(){return Math.random().toString(36).slice(2,6).toUpperCase()};$("ns_c").value="WA-"+c()+"-"+c();return}
+ if(a=="addst"){var n=$("ns_n").value.trim(),m=$("ns_e").value.trim().toLowerCase(),cd=$("ns_c").value.trim();if(!n||!m||!cd){nsmsg="Enter name, email and an access code.";dash();return}
+  if(W.students.some(function(s){return s.email==m})){nsmsg="That email already has a login. One login per student.";dash();return}
+  W.students.push({name:n,email:m,plan:$("ns_p").value,billing:$("ns_b").value,joined:today(),status:"active",hash:await sha(m+"|"+cd)});nsmsg="Added. Send this code to the student now (it is not stored): "+cd;mark();dash();return}
+ if(a=="pub"){publish();return}
+ if(a=="disc"){if(confirm("Discard all unpublished changes?")){W=clone(CFG);dirty=false;stat="";dash()}return}
+ if(a=="tog"){W.students[i].status=W.students[i].status=="active"?"revoked":"active"}
+ else if(a=="add")W[k].push(clone(TPL[k]));
+ else if(a=="del"){if(!confirm("Remove this item?"))return;W[k].splice(i,1)}
+ else if(a=="up"&&i>0){var x=W[k].splice(i,1)[0];W[k].splice(i-1,0,x)}
+ mark();dash()});
+function snapshot(cfg){var c=document.documentElement.cloneNode(true);
+ c.querySelectorAll(".dyn").forEach(function(e){e.innerHTML=""});
+ c.querySelectorAll('script[src*="three.min"]').forEach(function(e){e.remove()});
+ var pb=c.querySelector("#pb");pb&&pb.removeAttribute("style");
+ c.querySelectorAll(".view").forEach(function(v){v.classList.toggle("on",v.id=="v-home")});
+ c.querySelector("#loader").classList.remove("on");c.querySelector("#odash").classList.add("hide");c.querySelector("#ologin").classList.remove("hide");
+ c.querySelector("#msg").textContent=MSG0;c.querySelector("#dd").classList.remove("open");c.querySelector("body").classList.remove("adm");var n=c.querySelector("#navlog");n.textContent="Student login";n.setAttribute("href","#login");
+ c.querySelector("#cfg").textContent=JSON.stringify(cfg).replace(/</g,"\\u003c");
+ return "<!DOCTYPE html>\n"+c.outerHTML}
+async function publish(){var ui=function(m){stat=m;var s=document.querySelector(".pubbar span");if(s)s.textContent=m};
+ try{var art=window.claude&&await claude.use("artifact");if(!art){ui("Publishing is not available here. Open this page as its owner on claude.ai.");return}
+  ui("Publishing…");await art.publish(snapshot(W))}catch(e){ui("Could not publish: "+((e&&(e.message||e.code))||"error"))}}
+async function ownerInit(){$("ostat").textContent="Checking your Claude account…";var own=false;
+ try{var u=window.claude&&await claude.use("user");own=!!(u&&u.isOwner())}catch(e){}
+ $("ologin").classList.toggle("hide",own);$("odash").classList.toggle("hide",!own);
+ if(own){if(!W)W=clone(CFG);dash()}else $("ostat").textContent="Not verified. Open this page while signed in to the Claude account that owns it, then try again."}
+$("ochk").onclick=ownerInit;
+
+/* ===== 3D ROBOT: ALAN TURING ===== */
+function robot(){var host=$("ein");if(!window.THREE){host.innerHTML='<div class="sorry">3D view unavailable</div>';return}
+ try{var T=THREE,w=host.clientWidth||400,h=host.clientHeight||440,r=new T.WebGLRenderer({antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio||1,2));r.setSize(w,h);host.appendChild(r.domElement);
+ var s=new T.Scene(),cam=new T.PerspectiveCamera(30,w/h,.1,100);cam.position.set(0,-.1,13.5);
+ s.add(new T.AmbientLight(0xffffff,.6));var dl=new T.DirectionalLight(0xfff0d8,1.15);dl.position.set(4,5,8);s.add(dl);
+ var rim=new T.PointLight(0xb5304a,2.4,40);rim.position.set(-6,2,-1);s.add(rim);var fl=new T.PointLight(0xd8b98a,1,40);fl.position.set(5,-2,6);s.add(fl);
+ var root=new T.Group();root.position.y=-.3;s.add(root);
+ var BEIGE=0xd9c3a0,BLACK=0x17100d,BROWN=0x4a2c1c,MAR=0x7a1124,GLOW=0xffd9a0;
+ var MT=function(c,m,q){return new T.MeshStandardMaterial({color:c,metalness:m==null?.55:m,roughness:q==null?.4:q,flatShading:true})};
+ var BX=function(W,H,D,b,mat,x,y,z,p,ec){var sh=new T.Shape(),a=(W-2*b)/2,c=(H-2*b)/2;sh.moveTo(-a,-c);sh.lineTo(a,-c);sh.lineTo(a,c);sh.lineTo(-a,c);sh.lineTo(-a,-c);
+  var g=new T.ExtrudeGeometry(sh,{depth:Math.max(.001,D-2*b),bevelEnabled:true,bevelThickness:b,bevelSize:b,bevelSegments:1,steps:1});g.center();
+  var m=new T.Mesh(g,mat);m.position.set(x,y,z);(p||root).add(m);if(ec!==0)m.add(new T.LineSegments(new T.EdgesGeometry(g,25),new T.LineBasicMaterial({color:ec||0x2a1810,transparent:true,opacity:.7})));return m};
+ var HX=function(rt,rb,ht,mat,x,y,z,rz,p){var m=new T.Mesh(new T.CylinderGeometry(rt,rb,ht,6),mat);m.position.set(x,y,z);m.rotation.z=rz||0;(p||root).add(m);m.add(new T.LineSegments(new T.EdgesGeometry(m.geometry,25),new T.LineBasicMaterial({color:0x2a1810,transparent:true,opacity:.6})));return m};
+ var LED=new T.MeshBasicMaterial({color:0xc23b52});
+ /* body: tailored jacket, shirt and tie */
+ BX(3.1,2.5,1.5,.28,MT(BLACK,.5,.45),0,-2.95,0,0,0x7a1124);
+ [-1,1].forEach(function(d){var l=BX(.7,1.8,.16,.05,MT(0x2a1d18,.5,.4),d*.75,-2.45,.82,0,0x7a1124);l.rotation.z=-d*.3;HX(.5,.5,.55,MT(BEIGE,.6,.35),d*1.75,-1.98,0,Math.PI/2)});
+ BX(.85,1.7,.1,.04,MT(0xe6d6b6,.15,.6),0,-2.4,.84,0,0x8a6a40);BX(.34,.32,.16,.04,MT(MAR,.35,.5),0,-1.78,.94,0,0x000000);BX(.26,1.4,.12,.04,MT(MAR,.35,.5),0,-2.55,.95,0,0x000000);
+ BX(.5,.07,.05,.01,LED,.95,-2.1,.8,0,0);
+ /* neck */
+ HX(.42,.5,.85,MT(BROWN,.6,.35),0,-1.5,0);[-1.35,-1.65].forEach(function(y){HX(.5,.5,.06,MT(MAR,.4,.4),0,y,0)});
+ /* head */
+ var head=new T.Group();head.position.y=.5;root.add(head);
+ BX(1.9,2.15,1.45,.3,MT(BEIGE,.55,.35),0,0,0,head,0x4a2c1c);
+ BX(1.55,.52,.14,.05,MT(0x0a0706,.9,.15),0,.12,.74,head,0x7a1124);
+ var eyes=[];[-1,1].forEach(function(d){var g=new T.Group();g.position.set(d*.38,.12,.82);head.add(g);
+  var halo=new T.Mesh(new T.BoxGeometry(.4,.24,.02),new T.MeshBasicMaterial({color:0x7a1124,transparent:true,opacity:.55}));halo.position.z=-.01;g.add(halo);
+  g.add(new T.Mesh(new T.BoxGeometry(.28,.14,.04),new T.MeshBasicMaterial({color:GLOW})));g.userData.x=d*.38;eyes.push(g);
+  var br=BX(.62,.12,.12,.03,MT(0x2a1810,.4,.5),d*.42,.46,.78,head,0);br.rotation.z=d*.14});
+ BX(.2,.55,.26,.05,MT(BEIGE,.55,.35),0,-.2,.8,head,0x4a2c1c);
+ BX(.8,.08,.08,.01,MT(0x0a0706,.9,.2),0,-.62,.74,head,0);[-2,-1,0,1,2].forEach(function(i){BX(.1,.04,.04,.005,LED,i*.15,-.62,.79,head,0)});
+ [-1,1].forEach(function(d){HX(.3,.3,.24,MT(BROWN,.6,.35),d*1.02,0,0,Math.PI/2,head);HX(.16,.16,.28,MT(MAR,.4,.4),d*1.02,0,0,Math.PI/2,head);
+  for(var i=0;i<3;i++)BX(.24,.035,.05,.005,MT(0x2a1810,.5,.5),d*.86,-.45-i*.14,.62,head,0)});
+ /* Turing's neat side-parted hair */
+ var HR=MT(0x2a1810,.4,.5);BX(1.95,.6,1.55,.22,HR,0,1.2,-.02,head,0x7a1124);var f=BX(1.35,.3,.55,.1,HR,-.22,1.0,.62,head,0x7a1124);f.rotation.z=.1;
+ BX(.05,.45,1.2,.01,MT(0xd9c3a0,.5,.4),.34,1.36,.1,head,0);
+ [-1,1].forEach(function(d){BX(.3,.95,1.3,.1,HR,d*1.0,.62,-.05,head,0x7a1124)});
+ /* antenna */
+ var an=new T.Mesh(new T.CylinderGeometry(.03,.03,.55,6),MT(BROWN));an.position.set(.55,1.78,0);head.add(an);var ball=new T.Mesh(new T.SphereGeometry(.09,12,8),new T.MeshBasicMaterial({color:0xc23b52}));ball.position.set(.55,2.08,0);head.add(ball);
+ var mx=0,my=0,nb=2,cl=function(v,a){return Math.max(-a,Math.min(a,v))};
+ addEventListener("pointermove",function(e){var b=host.getBoundingClientRect();mx=(e.clientX-(b.left+b.width/2))/Math.max(b.width,300);my=-(e.clientY-(b.top+b.height*.4))/Math.max(b.height,300)});
+ (function loop(t){requestAnimationFrame(loop);t*=.001;
+  head.rotation.y+=(cl(mx*1.2,.7)-head.rotation.y)*.1;head.rotation.x+=(cl(-my*.9,.4)-head.rotation.x)*.1;root.rotation.y+=(cl(mx*.3,.2)-root.rotation.y)*.05;root.position.y=-.3+Math.sin(t*1.2)*.04;
+  var bl=t>nb&&t<nb+.12;if(t>nb+.12)nb=t+2.5+Math.random()*3;
+  eyes.forEach(function(g){g.position.x=g.userData.x+cl(mx*.9,.13);g.position.y=.12+cl(my*.8,.07);g.scale.y=bl?.1:1});
+  ball.scale.setScalar(1+Math.sin(t*4)*.25);r.render(s,cam)})(0);
+ addEventListener("resize",function(){var w2=host.clientWidth,h2=host.clientHeight;if(!w2)return;r.setSize(w2,h2);cam.aspect=w2/h2;cam.updateProjectionMatrix()})
+ }catch(e){host.innerHTML='<div class="sorry">3D view unavailable</div>'}}
+
+var CUR=null,LT=null,VIEWS=["home","enroll","checkout","login","learn","admin"];
+function viewOf(h){return VIEWS.indexOf(h)<1?"home":h}
+function show(v){VIEWS.forEach(function(x){$("v-"+x).classList.toggle("on",x==v)});
+ if(v=="enroll")enr();if(v=="checkout")co();if(v=="learn")learn();if(v=="admin")ownerInit();
+ $("navlog").textContent=user()?"My courses":"Student login";$("navlog").href=user()?"#learn":"#login";CUR=v;document.body.classList.toggle("adm",v=="admin");$("dd").classList.remove("open");
+ if(v!="home")window.scrollTo(0,0);else{var t=$(location.hash.slice(1));if(t)t.scrollIntoView()}}
+function route(){var v=viewOf(location.hash.slice(1)||"home");
+ if(v=="learn"&&!user()){location.hash="login";return}
+ if(v=="checkout"&&!ENR){location.hash="enroll";return}
+ clearTimeout(LT);
+ if(CUR===null||v===CUR){$("loader").classList.remove("on");show(v);return}
+ $("loader").classList.add("on");
+ LT=setTimeout(function(){show(viewOf(location.hash.slice(1)||"home"));$("loader").classList.remove("on")},1500)}
+$("ddb").onclick=function(e){e.stopPropagation();var o=$("dd").classList.toggle("open");this.setAttribute("aria-expanded",o)};
+document.addEventListener("click",function(){$("dd").classList.remove("open")});
+window.addEventListener("hashchange",route);landing();route();
+var th=document.createElement("script");th.src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js";th.onload=robot;th.onerror=robot;document.head.appendChild(th);
+</script>
+</body>
+</html>
